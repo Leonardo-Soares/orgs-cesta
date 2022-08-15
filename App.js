@@ -1,24 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StatusBar, SafeAreaView, View } from 'react-native';
+import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
+
+import Cesta from './src/ui/Cesta';
 
 export default function App() {
+  const [fontCarregada] = useFonts({
+    "MontserratRegular": Montserrat_400Regular,
+    "MonstserratBold": Montserrat_700Bold,
+  });
+
+  // Exibi acplicação quando a font estiver carregada
+  if (!fontCarregada) {
+    return <View />
+  }
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}> Hello World in Black Simple </Text>
-      <StatusBar style="light" />
-    </View>
+    <SafeAreaView>
+      <StatusBar />
+      <Cesta />
+    </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: '#fff',
-    fontSize: 24,
-  }
-});
