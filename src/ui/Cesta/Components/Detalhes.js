@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Image, StyleSheet, Button } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
+import ButtonOpacity from "../../../components/ButtonOpacity";
 
 import Texto from "../../../components/Texto";
 
 
-export default function Detalhes({ nomeCesta, nomeFazenda, logoFazenda, descricao, preco }) {
+export default function Detalhes({ nomeCesta, nomeFazenda, logoFazenda, descricao, preco, botaoComprar }) {
   return <>
     <Texto style={estilos.nomeCesta}>{ nomeCesta }</Texto>
     <View style={estilos.containerFazenda}>
@@ -13,6 +14,9 @@ export default function Detalhes({ nomeCesta, nomeFazenda, logoFazenda, descrica
     </View>
     <Texto style={estilos.descricao}>{ descricao }</Texto>
     <Texto style={estilos.preco}>{ preco }</Texto>
+
+    <ButtonOpacity botaoComprar={botaoComprar} />
+
   </>
 }
 
